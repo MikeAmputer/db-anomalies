@@ -37,15 +37,13 @@
       '
 
   dbeaver:
-    image: dbeaver/cloudbeaver:latest
+    image: dbeaver/cloudbeaver:24.2.2
     container_name: dbeaver
     ports:
       - "8901:8978"
     volumes:
       - ./__init/dbeaver/initial-data-sources.json:/opt/cloudbeaver/workspace/GlobalConfiguration/.dbeaver/data-sources.json
       - ./__init/dbeaver/.cloudbeaver.runtime.json:/opt/cloudbeaver/workspace/.data/.cloudbeaver.runtime.conf
-      - ./__init/dbeaver/permissions.json:/opt/cloudbeaver/workspace/GlobalConfiguration/.dbeaver/data-sources-permissions.json
-      - ./__init/dbeaver/initial-users.conf:/opt/cloudbeaver/conf/initial-data.conf
     depends_on:
       - postgres-db
       - mssql-db
